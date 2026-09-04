@@ -23,8 +23,10 @@ At the time, there was no obvious indication that the message was malicious.
 ### Why the message appeared legitimate
 
 - It came from a known contact.
+- Real website.
 - The message appeared to be a normal invitation.
 - The requested Google login seemed reasonable for accessing the invitation.
+- It had Google's two step verification.
 - The sender's account had apparently already been compromised.
 
 After the incident, I contacted my friend and discovered that they had **not actually sent the message**.
