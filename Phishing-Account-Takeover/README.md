@@ -136,3 +136,63 @@ Compromised Friend's Account
             |
             v
    Attacker Gains Account Access
+
+
+The exact technical mechanism used by the attacker cannot be confirmed solely from the Google security logs.
+
+However, the behavior was consistent with a phishing attack that leveraged a legitimate authentication process and social engineering.
+
+One possible technique is an **Adversary-in-the-Middle (AiTM)** attack, in which an attacker relays authentication information between the victim and the legitimate authentication service.
+
+Regardless of the exact implementation, the attack demonstrated that the attacker did not necessarily need to break Google's authentication system. Instead, the attacker manipulated the user into participating in the authentication process.
+
+---
+
+# 6. Social Engineering Techniques
+
+Several social engineering techniques were combined to make the attack convincing.
+
+## Trusted Sender
+
+The phishing email originated from a friend's compromised account.
+
+Because the sender was already known and trusted, the message appeared more credible.
+
+## Familiar Context
+
+The email was presented as a wedding invitation.
+
+This provided a believable reason for the recipient to click the link and authenticate.
+
+## Credential Phishing
+
+The fake login page was designed to resemble a legitimate Google authentication page.
+
+This encouraged the victim to enter their credentials.
+
+## Authentication Prompt Manipulation
+
+The attacker also used a verification step involving three-number confirmation.
+
+The authentication request appeared legitimate because it resembled Google's normal security process.
+
+This demonstrates that multi-factor authentication can still be targeted through social engineering.
+
+---
+
+# 7. Why the Attack Was Effective
+
+The attack was effective because it combined multiple layers of deception:
+
+```text
+Trusted Contact
+      +
+Believable Situation
+      +
+Convincing Login Page
+      +
+Legitimate Authentication Flow
+      +
+Social Engineering
+      =
+Account Compromise
