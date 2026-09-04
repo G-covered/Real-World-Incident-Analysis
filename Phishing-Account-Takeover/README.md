@@ -204,7 +204,7 @@ Instead, it exploited human trust and familiarity.
 
 This was an important lesson because it demonstrated that even a strong password can be compromised through phishing.
 
-#8. Incident Response
+# 8. Incident Response
 
 Once the unauthorized activity was identified, I began securing the account.
 
@@ -251,7 +251,7 @@ Other account security settings
 
 No unauthorized recovery methods or other suspicious security settings were identified after securing the account.
 
-#9. Password Manager Considerations
+# 9. Password Manager Considerations
 
 Another concern was that passwords were stored in Google Password Manager.
 
@@ -269,7 +269,7 @@ Important accounts were prioritized for additional protection.
 
 The incident did not establish that the attacker accessed or copied the entire password manager. However, because unauthorized account access had occurred, stored credentials were treated as a potential risk and reviewed accordingly.
 
-#10. Why a Strong Password Was Not Enough
+# 10. Why a Strong Password Was Not Enough
 
 One of the most important lessons from this incident was that the attacker did not necessarily need to guess my password.
 
@@ -289,7 +289,7 @@ A password can be extremely difficult to brute-force while still being vulnerabl
 
 The objective is therefore not only to create a strong password, but also to prevent the password from being disclosed to an attacker.
 
-#11. 2-Step Verification Lessons
+# 11. 2-Step Verification Lessons
 
 2-Step Verification significantly improves account security, but it does not eliminate social engineering.
 
@@ -301,7 +301,7 @@ If I did not initiate the login, I should not approve the authentication request
 
 An unexpected authentication prompt should be treated as a potential security incident.
 
-#12. Lessons Learned
+# 12. Lessons Learned
 Lesson 1 — Verify the Login Destination
 
 A login page that looks legitimate is not necessarily legitimate.
@@ -343,7 +343,7 @@ Recovery email addresses, recovery phone numbers, passkeys, and other recovery m
 
 An attacker who compromises a recovery method may be able to regain access even after a password change.
 
-#13. What I Would Do Differently
+# 13. What I Would Do Differently
 
 If I encountered a similar email again, I would:
 
@@ -354,7 +354,7 @@ Check the domain before entering credentials.
 Treat unexpected authentication prompts as suspicious.
 Never approve an authentication request that I did not initiate.
 Contact the supposed sender through another communication method if the message seems unusual.
-#14. Cybersecurity Concepts Demonstrated
+# 14. Cybersecurity Concepts Demonstrated
 
 This incident provided practical exposure to:
 
@@ -373,7 +373,7 @@ Incident detection
 Incident response
 Security auditing
 Defense in depth
-#15. Same-Day Incident Response
+# 15. Same-Day Incident Response
 
 One of the most valuable aspects of this experience was being able to detect, investigate, and respond to the incident within the same day.
 
@@ -397,7 +397,7 @@ Reconstructed the likely phishing attack chain.
 Identified the social-engineering techniques used.
 Evaluated the limitations of password-only security.
 Evaluated the role of MFA and authentication prompts.
-#16. Final Reflection
+# 16. Final Reflection
 
 This incident was an unexpected but valuable real-world cybersecurity learning experience.
 
