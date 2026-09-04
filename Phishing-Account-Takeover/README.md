@@ -82,7 +82,7 @@ I began reviewing Google's security activity.
 
 The Google security activity provided a useful timeline of the incident.
 
-<img width="895" height="560" alt="Screenshot 2026-09-03 181338" src="https://github.com/user-attachments/assets/c7d32c87-326f-426d-bbec-cea002a37509" />
+<img width="892" height="580" alt="image" src="https://github.com/user-attachments/assets/4a7af683-6d20-4afa-946e-d659a1d833ed" />
 
 The most significant event was the password change attributed to the Mac OS session.
 
@@ -377,21 +377,7 @@ The objective is therefore not only to create a strong password, but also to pre
 
 ---
 
-# 11. 2-Step Verification Lessons
-
-2-Step Verification significantly improves account security, but it does not eliminate social engineering.
-
-An attacker may attempt to convince a user to approve an authentication request that the attacker initiated.
-
-A key rule learned from this incident is:
-
-If I did not initiate the login, I should not approve the authentication request.
-
-An unexpected authentication prompt should be treated as a potential security incident.
-
----
-
-# 12. Lessons Learned
+# 11. Lessons Learned
 ### Lesson 1 — Verify the Login Destination
 
 A login page that looks legitimate is not necessarily legitimate.
@@ -424,19 +410,19 @@ An attacker who compromises a recovery method may be able to regain access even 
 
 ---
 
-# 13. What I Would Do Differently
+# 12. What I Would Do Differently
 
 If I encountered a similar email again, I would:
 
-- Avoid clicking the authentication link.
-- Independently navigate to the legitimate website.
+- First of all, contact the supposed sender through another communication method if the message seems unusual.
+- Don't assume if the website is legitimate, it is real altogether.
 - Verify whether the invitation actually exists.
 - Check the domain before entering credentials.
-- Contact the supposed sender through another communication method if the message seems unusual.
+- Now we know attackers can use real authentication to confirm your account. 
 
 ---
 
-# 14. Cybersecurity Concepts Demonstrated
+# 13. Cybersecurity Concepts Demonstrated
 
 This incident provided practical exposure to:
 
@@ -458,34 +444,34 @@ This incident provided practical exposure to:
 
 ---
 
-# 15. Same-Day Incident Response
+# 14. Same-Day Incident Response
 
 One of the most valuable aspects of this experience was being able to detect, investigate, and respond to the incident within the same day.
 
-Detection
-Identified an unexpected Mac OS login.
-Recognized that the device was not mine.
-Reviewed Google's security activity.
-Investigation
-Compared security-event timestamps.
-Identified an unauthorized password change.
-Contacted the original email sender.
-Confirmed that the sender had not sent the phishing message.
-Containment and Recovery
-Changed the compromised password.
-Completed Google account recovery.
-Enabled 2-Step Verification.
-Reviewed devices and sessions.
-Audited account security settings.
-Analysis
-Reconstructed the likely phishing attack chain.
-Identified the social-engineering techniques used.
-Evaluated the limitations of password-only security.
-Evaluated the role of MFA and authentication prompts.
+- Detection
+- Identified an unexpected Mac OS login.
+- Recognized that the device was not mine.
+- Reviewed Google's security activity.
+- Investigation
+- Compared security-event timestamps.
+- Identified an unauthorized password change.
+- Contacted the original email sender.
+- Confirmed that the sender had not sent the phishing message.
+- Containment and Recovery
+- Changed the compromised password.
+- Completed Google account recovery.
+- Enabled 2-Step Verification.
+- Reviewed devices and sessions.
+- Audited account security settings.
+- Analysis
+- Reconstructed the likely phishing attack chain.
+- Identified the social-engineering techniques used.
+- Evaluated the limitations of password-only security.
+- Evaluated the role of MFA and authentication prompts.
 
 ---
 
-# 16. Final Reflection
+# 15. Final Reflection
 
 This incident was an unexpected but valuable real-world cybersecurity learning experience.
 
@@ -509,7 +495,7 @@ Within a single day, I was able to identify the suspicious activity, reconstruct
 
 This experience changed the way I approach authentication and phishing and provided a practical example of how multiple cybersecurity concepts interact during a real-world account compromise.
 
-#Key Takeaway
+# Key Takeaway
 
 The strongest password in the world cannot protect an account if an attacker convinces the user to give it to them.
 
