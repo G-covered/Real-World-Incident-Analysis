@@ -204,52 +204,142 @@ Instead, it exploited human trust and familiarity.
 
 This was an important lesson because it demonstrated that even a strong password can be compromised through phishing.
 
+---
+
 # 8. Incident Response
 
-Once the unauthorized activity was identified, I began securing the account.
+The incident response occurred in two separate stages.
 
-Step 1 — Changed the Password
+The first response happened immediately after the initial unauthorized Mac OS sign-in was detected. The second response occurred several hours later after I discovered that the attacker had changed the password.
 
-I changed the Google account password from my trusted device.
+## Stage 1 — Initial Response
 
-The new password was completely different from the previous password and was not reused from another account.
+### Step 1 — Detected the Unauthorized Sign-In
 
-Step 2 — Investigated Security Activity
+Google reported a new sign-in from a **Mac OS device** that I did not recognize.
 
-I reviewed Google's recent security activity for:
+I do not own or use a Mac, so this immediately indicated that someone else may have accessed the account.
 
-Unknown devices
-New sign-ins
-Password changes
-Authentication events
-Security setting changes
-Step 3 — Account Recovery
+### Step 2 — Changed the Password
 
-After the password had been changed by the unauthorized session, I used Google's account recovery process to regain control of the account.
+Immediately after discovering the unauthorized Mac OS sign-in, I changed my Google account password from my trusted device.
 
-Step 4 — Enabled 2-Step Verification
+The key here is that I reuse part of the password and combined with another harder password. The other password was practically unguessable, unless the attacker was able to view my password manager see what I used for accounts.
 
-I enabled Google 2-Step Verification from my trusted device.
+At this point, I believed changing the password would secure the account and prevent the unauthorized session from continuing.
+
+---
+
+## Stage 2 — Discovered the Account Was Still Compromised
+
+Approximately five hours later, I discovered that the attacker had changed the password.
+
+### Step 3 — Unexpected Sign-In Prompt
+
+While I was already using my Windows computer and had recently signed into my Google account, I received another prompt to sign in.
+
+This was unusual because I had already been signed in moments earlier.
+
+I attempted to sign in using the new password I had created approximately five hours earlier.
+
+The password was no longer accepted.
+
+### Step 4 — Investigated Recent Security Activity
+
+Because I could no longer sign in with the password I had created earlier, I checked Google's recent security activity from my phone.
+
+The security activity showed that the **same unfamiliar Mac OS device had changed the Google account password** approximately five hours after my initial password change.
+
+This confirmed that the attacker had maintained access to the account and was able to change the password after my initial response.
+
+### Step 5 — Enabled 2-Step Verification
+
+After discovering that the password had been changed by the unauthorized Mac OS session, I enabled Google 2-Step Verification from my trusted device.
 
 This added an additional authentication requirement to future sign-ins.
 
-Step 5 — Reviewed Devices and Sessions
+### Step 6 — Account Recovery
+
+I used Google's account recovery process to regain control of the account.
+
+### Step 7 — Created a Completely Different Password
+
+After recovering the account, I created a completely different password.
+
+The new password was not based on the previous password and was not reused from another account.
+
+### Step 8 — Reviewed Devices and Sessions
 
 I reviewed the devices and sessions associated with the Google account and identified the unfamiliar Mac OS activity.
 
-Step 6 — Audited Security Settings
+### Step 9 — Audited Security Settings
 
 I reviewed:
 
-Recovery email
-Recovery phone
-2-Step Verification methods
-Passkeys
-Connected applications
-Active sessions
-Other account security settings
+- Recovery email
+- Recovery phone
+- 2-Step Verification methods
+- Passkeys
+- Connected applications
+- Active sessions
+- Other account security settings
 
 No unauthorized recovery methods or other suspicious security settings were identified after securing the account.
+
+---
+
+## Incident Response Timeline
+
+```text
+Initial Mac OS Sign-In
+        |
+        v
+Detected Unauthorized Activity
+        |
+        v
+Changed Password
+        |
+        |  ~5 hours later
+        v
+Unexpected Sign-In Prompt
+        |
+        v
+New Password No Longer Worked
+        |
+        v
+Checked Recent Security Activity
+        |
+        v
+Discovered Mac OS Changed Password
+        |
+        v
+Enabled 2-Step Verification
+        |
+        v
+Account Recovery
+        |
+        v
+Created Completely Different Password
+        |
+        v
+Reviewed Devices & Sessions
+        |
+        v
+Audited Security Settings
+        |
+        v
+Account Secured
+```
+
+This two-stage response was an important part of the incident because the initial password change did not completely resolve the compromise. 
+
+The later security investigation revealed that the unauthorized Mac OS session either had remained active and was able to change the password or signed in and changed the password.
+
+The only way the attacker could sign in again after I changed the password is if the attacker looked through my password manager and reuse one the password from there.
+
+The incident demonstrated the importance of not only changing a compromised password, but also reviewing recent security activity, active sessions, authentication methods, and account recovery settings after an account takeover.
+
+---
 
 # 9. Password Manager Considerations
 
@@ -259,15 +349,17 @@ Because the Google account had been compromised, I considered whether stored cre
 
 This highlighted the importance of:
 
-Using unique passwords
-Avoiding password reuse
-Protecting password managers
-Using multi-factor authentication
-Securing account recovery methods
+-Using unique passwords
+-Avoiding password reuse
+-Protecting password managers
+-Using multi-factor authentication
+-Securing account recovery methods
 
 Important accounts were prioritized for additional protection.
 
 The incident did not establish that the attacker accessed or copied the entire password manager. However, because unauthorized account access had occurred, stored credentials were treated as a potential risk and reviewed accordingly.
+
+---
 
 # 10. Why a Strong Password Was Not Enough
 
@@ -289,6 +381,8 @@ A password can be extremely difficult to brute-force while still being vulnerabl
 
 The objective is therefore not only to create a strong password, but also to prevent the password from being disclosed to an attacker.
 
+---
+
 # 11. 2-Step Verification Lessons
 
 2-Step Verification significantly improves account security, but it does not eliminate social engineering.
@@ -300,6 +394,8 @@ A key rule learned from this incident is:
 If I did not initiate the login, I should not approve the authentication request.
 
 An unexpected authentication prompt should be treated as a potential security incident.
+
+---
 
 # 12. Lessons Learned
 Lesson 1 — Verify the Login Destination
