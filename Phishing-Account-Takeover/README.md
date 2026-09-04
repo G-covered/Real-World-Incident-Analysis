@@ -82,13 +82,7 @@ I began reviewing Google's security activity.
 
 The Google security activity provided a useful timeline of the incident.
 
-| Time | Event | Device | Interpretation |
-|---|---|---|---|
-| 11:57 AM | New sign-in | Mac OS | Unrecognized login |
-| 12:07 PM | Password changed | Galaxy S26 Ultra | Password changed by me |
-| 5:20 PM | Password changed | Mac OS | Unrecognized password change |
-| 5:35 PM | 2-Step Verification enabled | Galaxy S26 Ultra | Security measure enabled by me |
-| 5:49 PM | New sign-in | Windows | Recognized device |
+<img width="895" height="560" alt="Screenshot 2026-09-03 181338" src="https://github.com/user-attachments/assets/c7d32c87-326f-426d-bbec-cea002a37509" />
 
 The most significant event was the password change attributed to the Mac OS session.
 
