@@ -349,11 +349,11 @@ Because the Google account had been compromised, I considered whether stored cre
 
 This highlighted the importance of:
 
--Using unique passwords
--Avoiding password reuse
--Protecting password managers
--Using multi-factor authentication
--Securing account recovery methods
+- Using unique passwords
+- Avoiding password reuse
+- Protecting password managers
+- Using multi-factor authentication
+- Securing account recovery methods
 
 Important accounts were prioritized for additional protection.
 
@@ -398,77 +398,72 @@ An unexpected authentication prompt should be treated as a potential security in
 ---
 
 # 12. Lessons Learned
-Lesson 1 — Verify the Login Destination
+### Lesson 1 — Verify the Login Destination
 
 A login page that looks legitimate is not necessarily legitimate.
 
 Before entering credentials, verify the website's domain and consider navigating directly to the legitimate service instead of following an unexpected authentication link.
 
-Lesson 2 — Trusted Contacts Can Become Attack Vectors
+### Lesson 2 — Trusted Contacts Can Become Attack Vectors
 
 A message from a known person should not automatically be considered safe.
 
 If a friend's account is compromised, their account can be used to distribute malicious messages to people who trust them.
 
-Lesson 3 — MFA Does Not Eliminate Social Engineering
+### Lesson 3 — MFA Does Not Eliminate Social Engineering
 
 Multi-factor authentication provides significant protection, but users can still be manipulated into approving authentication requests.
 
 MFA should therefore be combined with security awareness.
 
-Lesson 4 — Unexpected Authentication Requests Matter
-
-If I am not actively signing into an account and receive an authentication prompt, I should not approve it.
-
-Instead:
-
-Deny the request.
-Investigate the account.
-Review recent security activity.
-Change the password if necessary.
-Review account security settings.
-Lesson 5 — Password Reuse Creates Additional Risk
+### Lesson 4 — Password Reuse Creates Additional Risk
 
 If the same or similar password is used across multiple services, compromise of one account can increase the risk to other accounts.
 
 Unique passwords should be used for important accounts.
 
-Lesson 6 — Account Recovery Is Part of Security
+### Lesson 5 — Account Recovery Is Part of Security
 
 Recovery email addresses, recovery phone numbers, passkeys, and other recovery mechanisms should be treated as security-critical components of an account.
 
 An attacker who compromises a recovery method may be able to regain access even after a password change.
 
+---
+
 # 13. What I Would Do Differently
 
 If I encountered a similar email again, I would:
 
-Avoid clicking the authentication link.
-Independently navigate to the legitimate website.
-Verify whether the invitation actually exists.
-Check the domain before entering credentials.
-Treat unexpected authentication prompts as suspicious.
-Never approve an authentication request that I did not initiate.
-Contact the supposed sender through another communication method if the message seems unusual.
+- Avoid clicking the authentication link.
+- Independently navigate to the legitimate website.
+- Verify whether the invitation actually exists.
+- Check the domain before entering credentials.
+- Contact the supposed sender through another communication method if the message seems unusual.
+
+---
+
 # 14. Cybersecurity Concepts Demonstrated
 
 This incident provided practical exposure to:
 
-Phishing
-Social engineering
-Credential theft
-Account takeover
-Multi-factor authentication
-MFA social engineering
-Authentication relaying
-Session security
-Password security
-Password managers
-Account recovery
-Incident detection
-Incident response
-Security auditing
-Defense in depth
+- Phishing
+- Social engineering
+- Credential theft
+- Account takeover
+- Multi-factor authentication
+- MFA social engineering
+- Authentication relaying
+- Session security
+- Password security
+- Password managers
+- Account recovery
+- Incident detection
+- Incident response
+- Security auditing
+- Defense in depth
+
+---
+
 # 15. Same-Day Incident Response
 
 One of the most valuable aspects of this experience was being able to detect, investigate, and respond to the incident within the same day.
@@ -493,6 +488,9 @@ Reconstructed the likely phishing attack chain.
 Identified the social-engineering techniques used.
 Evaluated the limitations of password-only security.
 Evaluated the role of MFA and authentication prompts.
+
+---
+
 # 16. Final Reflection
 
 This incident was an unexpected but valuable real-world cybersecurity learning experience.
@@ -503,11 +501,11 @@ The most important realization was that the attacker did not necessarily need to
 
 Instead, the attack relied on:
 
-Trust
-Social engineering
-Credential phishing
-Authentication manipulation
-A compromised trusted contact
+- Trust
+- Social engineering
+- Credential phishing
+- Authentication manipulation
+- A compromised trusted contact
 
 The incident reinforced that cybersecurity is not only about technical controls.
 
@@ -523,6 +521,7 @@ The strongest password in the world cannot protect an account if an attacker con
 
 Defense in depth is essential:
 
+```text
 Unique Password
        +
 2-Step Verification
@@ -536,3 +535,4 @@ Security Awareness
 Rapid Incident Response
        =
 Stronger Account Security
+```
