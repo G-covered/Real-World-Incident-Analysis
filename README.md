@@ -42,7 +42,7 @@ The report follows the incident from the initial phishing message through detect
 
 - [12. What I Would Do Differently](./Phishing-Account-Takeover/README.md#12-what-i-would-do-differently)
 - [13. Cybersecurity Concepts Demonstrated](./Phishing-Account-Takeover/README.md#13-cybersecurity-concepts-demonstrated)
-- [14. Same-Day Incident Response](./Phishing-Account-Takeover/README.md#14-same-day-incident-response)
+- [14. Same-Day Incident Response (9/3/2026)](./Phishing-Account-Takeover/README.md#14-same-day-incident-response)
 
 ### Conclusion
 
