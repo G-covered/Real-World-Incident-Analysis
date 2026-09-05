@@ -140,25 +140,25 @@ The likely attack flow was:
 
 
 Step-by-Step Explanation
-# 1. Phishing Link
+### 1. Phishing Link
 
 The email appeared to come from a trusted contact and presented a believable reason to follow the link.
 
 When I opened the link, I was immediately presented with what appeared to be a Google login page.
 
-# 2. Credential Entry
+### 2. Credential Entry
 
 I entered my Gmail address and password into the page.
 
 The credentials may have then been relayed to the attacker or their authentication infrastructure.
 
-# 3. Attacker Initiates a Google Login
+### 3. Attacker Initiates a Google Login
 
 The attacker appears to have used the credentials to initiate a legitimate Google login from their own device.
 
 This is consistent with the Mac OS activity that appeared in Google's security history.
 
-# 4. Legitimate Google Authentication Prompt
+### 4. Legitimate Google Authentication Prompt
 
 Google sent an authentication request to my phone.
 
@@ -168,7 +168,7 @@ Because I was actively trying to log in at that exact moment, the authentication
 
 The prompt also displayed a number that matched the number shown during the login process.
 
-# 5. Authentication Was Approved
+### 5. Authentication Was Approved
 
 I confirmed the authentication request on my phone.
 
@@ -176,7 +176,7 @@ From my perspective, I was confirming the login that I had just initiated.
 
 However, the authentication may have actually been approving the attacker's Google login session.
 
-# 6. Mac OS Session Appeared
+### 6. Mac OS Session Appeared
 
 Immediately after approving the authentication request, I received an email reporting a new sign-in from Mac OS.
 
@@ -184,7 +184,7 @@ This was unexpected because I had been using my phone and did not own or use a M
 
 This provided an important clue that the authentication I had just approved may have been associated with another device.
 
-# 7. Phishing Page Requested Another Login
+### 7. Phishing Page Requested Another Login
 
 After the authentication was approved, the website prompted me to log in again.
 
@@ -192,7 +192,7 @@ This was confusing because I had just completed the login process.
 
 The second login request is consistent with the possibility that the phishing page was not actually completing a normal login for me, but was instead being used to collect or relay authentication information.
 
-Why the Attack Happened So Quickly
+Why the Attack Happened So Quickly?
 
 The attacker would not necessarily have needed to manually type each character into their own computer.
 
@@ -220,7 +220,7 @@ This explains why the attack felt as though I had entered the credentials direct
 
 Technically, I was not necessarily controlling or typing into the attacker's computer. Instead, the information entered into the phishing page may have been transmitted to the attacker's authentication process.
 
-# Important Limitation
+### Important Limitation
 
 The exact technical mechanism cannot be confirmed solely from Google's security logs.
 
