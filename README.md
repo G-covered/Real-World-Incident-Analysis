@@ -49,3 +49,7 @@ The report follows the incident from the initial phishing message through detect
 **Section 15: Final reflection**
 
 - [15. Final Reflection](./Phishing-Account-Takeover/README.md#15-final-reflection)
+
+# Diagram of how the attack might of happened
+
+<img width="1536" height="1024" alt="ChatGPT Image Sep 5, 2026, 04_51_46 PM" src="https://github.com/user-attachments/assets/a88203e2-89fe-4a3e-9408-67db59cbc2b9" />
