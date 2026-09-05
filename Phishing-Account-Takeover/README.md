@@ -4,11 +4,15 @@
 
 On September 3, 2026, I experienced and investigated a real-world phishing attack that resulted in unauthorized access to my Google account.
 
-What initially appeared to be a legitimate wedding invitation was actually a phishing message sent from a friend's compromised account. The attack used social engineering, a fraudulent Google login page, and a legitimate Google authentication process to convince me to provide credentials and approve an authentication request.
+What initially appeared to be a legitimate wedding invitation was actually part of a phishing attack originating from a friend's compromised account. The attack used social engineering and a fraudulent Google login page to capture my credentials and convince me to approve a legitimate Google authentication request.
 
-The incident was detected shortly after the initial compromise, allowing me to investigate the attack, recover the account, change the compromised credentials, enable 2-Step Verification, and audit the account's security settings.
+Google's activity records later provided additional evidence of the attack. At approximately 11:57 AM, Google My Activity recorded a visit to a suspicious domain displaying a page titled **"Sign in with your Google Account."** At approximately the same time, Google's security activity reported a new sign-in from an unfamiliar **Mac OS device**.
 
-This report documents the attack, detection process, response, and lessons learned.
+The incident required a two-stage response. I initially changed my Google password after detecting the unauthorized sign-in. Approximately five hours later, I discovered that the password had been changed again by the unauthorized Mac OS activity, requiring me to recover the account and investigate the compromise further.
+
+After recovering the account, I created a completely different password, enabled 2-Step Verification, reviewed devices and active sessions, and audited the account's security settings.
+
+This report documents the attack, evidence collected during the investigation, incident response, and lessons learned.
 
 ---
 
@@ -16,17 +20,17 @@ This report documents the attack, detection process, response, and lessons learn
 
 The attack began with an email that appeared to come from a friend.
 
-The message looked like a legitimate wedding invitation and contained a link that required me to log into my Google account.
+The message looked like a legitimate wedding invitation and contained a link to a real wedding website. The site eventually prompted me to log into my Google account.
 
 At the time, there was no obvious indication that the message was malicious.
 
-### Why the message appeared legitimate
+### Why the Message Appeared Legitimate
 
 - It came from a known contact.
-- Real website.
-- The message appeared to be a normal invitation.
+- It directed me to a real wedding website.
+- The message appeared to be a normal wedding invitation.
 - The requested Google login seemed reasonable for accessing the invitation.
-- It had Google's two step verification.
+- The subsequent Google authentication prompt appeared legitimate because it was delivered through Google's normal authentication system.
 
 After the incident, I contacted my friend and discovered that they had **not actually sent the message**.
 
@@ -38,15 +42,31 @@ This indicated that their account had likely been compromised and subsequently u
 
 After following the link, I was immediately presented with a Google login page that appeared legitimate.
 
-I entered my Google email address and password into the page. The page then displayed a three-digit number and prompted me to continue the authentication process.
+I entered my Google email address and password into the page. The page then displayed a number and prompted me to continue the authentication process.
 
 At the same time, my phone displayed a legitimate Google authentication prompt asking if I was trying to sign in. Because I was actively attempting to log in, the request appeared legitimate. My phone instructed me to confirm which of the three numbers displayed on the phone matched the number shown during the login process.
 
 I confirmed the authentication request.
 
-Immediately afterward, the website prompted me to log in again, which confused me because I had just completed the authentication process.
+Immediately afterward, the website prompted me to log in again. This confused me because I had just completed the authentication process.
 
-Shortly after this, I received an email from Google reporting a new sign-in from a **Mac OS device**. I did not own or use a Mac, which indicated that the authentication I had just approved may have been associated with another device.
+Shortly afterward, I received an email from Google reporting a new sign-in from a **Mac OS device**. I did not own or use a Mac, which indicated that the authentication request I had just approved may have been associated with an unauthorized device.
+
+### Evidence from Google Activity
+
+Google My Activity later provided additional evidence of the phishing interaction.
+
+<img width="592" height="487" alt="Screenshot 2026-09-04 201758" src="https://github.com/user-attachments/assets/80c7f39d-c314-4183-8a09-952cb0e62755" />
+
+At approximately **11:57 AM**, Google recorded a Chrome visit from an **Unknown Device** to the domain:
+
+`yellowewte078.es`
+
+The activity was titled **"Sign in with your Google Account."**
+
+This was significant because the activity occurred at approximately the same time as the unauthorized Mac OS sign-in reported by Google Security Activity.
+
+The domain was not a Google domain, despite the page presenting itself as a Google sign-in page.
 
 ### Important Observation
 
@@ -58,7 +78,9 @@ Instead, the attack relied on **social engineering** to convince me to voluntari
 
 The authentication prompt was particularly convincing because I was actually attempting to sign in at the time. From my perspective, the request appeared to be confirming my own login.
 
-The sequence of events was consistent with the possibility that the credentials entered into the phishing page were relayed to an authentication attempt initiated by the attacker.
+The sequence of events is consistent with the possibility that the credentials entered into the phishing page were relayed to a legitimate Google authentication attempt initiated by the attacker.
+
+This type of technique can be associated with **adversary-in-the-middle (AiTM)** attacks or other forms of authentication relaying. However, the available Google activity records do not provide enough information to definitively determine the exact technical method used.
 
 This demonstrated an important security principle:
 
@@ -92,9 +114,7 @@ The Google security activity provided a useful timeline of the incident.
 
 The most significant event was the password change attributed to the Mac OS session.
 
-I had changed my password earlier in the day, but several hours later Google reported another password change from the unfamiliar Mac OS session.
-
-This explained why the password I had originally created was no longer accepted.
+I had changed my password right after the new sign-in from Mac OS, but several hours later Google reported another password change from the unfamiliar Mac OS session.
 
 ---
 
@@ -114,9 +134,10 @@ The likely attack flow was:
      Phishing Email Sent
              |
              v
-    Fake Wedding Invitation
+Legitimate-looking wedding invitation
              |
              v
+    
 
             YOU                         PHISHING SITE                 ATTACKER
              │                                │                           │
@@ -136,6 +157,9 @@ The likely attack flow was:
              │                                │                           │
              │                         ATTACKER LOGGED IN                 │
              │                         Mac OS session                     │
+                                              |
+                                              v
+                                    Google account takeover
 ```
 
 
@@ -192,7 +216,7 @@ This was confusing because I had just completed the login process.
 
 The second login request is consistent with the possibility that the phishing page was not actually completing a normal login for me, but was instead being used to collect or relay authentication information.
 
-Why the Attack Happened So Quickly?
+### Why the Attack Happened So Quickly?
 
 The attacker would not necessarily have needed to manually type each character into their own computer.
 
@@ -256,7 +280,7 @@ This encouraged the victim to enter their credentials.
 
 The attacker also used a verification step involving three-number confirmation.
 
-The authentication request appeared legitimate because it resembled Google's normal security process.
+The legitimate Google prompt appeared to confirm the login the victim was already attempting.
 
 This demonstrates that multi-factor authentication can still be targeted through social engineering.
 
@@ -332,7 +356,7 @@ Because I could no longer sign in with the password I had created earlier, I che
 
 The security activity showed that the **same unfamiliar Mac OS device had changed the Google account password** approximately five hours after my initial password change.
 
-This confirmed that the attacker had maintained access to the account and was able to change the password after my initial response.
+The attacker had somehow retained or regained sufficient access to change the password.
 
 ### Step 5 — Enabled 2-Step Verification
 
@@ -415,9 +439,7 @@ Account Secured
 
 This two-stage response was an important part of the incident because the initial password change did not completely resolve the compromise. 
 
-The later security investigation revealed that the unauthorized Mac OS session either had remained active and was able to change the password or signed in and changed the password.
-
-The only way the attacker could sign in again after I changed the password is if the attacker looked through my password manager and reuse one the password from there.
+The later security investigation revealed that the attacker had somehow retained or regained sufficient access to change the password. The available logs do not establish whether the original session remained active, another session existed, or another authentication mechanism was used.
 
 The incident demonstrated the importance of not only changing a compromised password, but also reviewing recent security activity, active sessions, authentication methods, and account recovery settings after an account takeover.
 
