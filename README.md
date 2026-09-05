@@ -34,7 +34,7 @@ The report follows the incident from the initial phishing message through detect
 
 - [9. Password Manager Considerations](./Phishing-Account-Takeover/README.md#9-password-manager-considerations)
 - [10. Why a Strong Password Was Not Enough](./Phishing-Account-Takeover/README.md#10-why-a-strong-password-was-not-enough)
-- [11. 2-Step Verification Lessons](./Phishing-Account-Takeover/README.md#11-2-step-verification-lessons)
+- [11. Lessons Learned](./Phishing-Account-Takeover/README.md#11-lessons-learned)
 
 ### Lessons & Cybersecurity Concepts
 
@@ -42,7 +42,7 @@ The report follows the incident from the initial phishing message through detect
 
 - [12. What I Would Do Differently](./Phishing-Account-Takeover/README.md#12-what-i-would-do-differently)
 - [13. Cybersecurity Concepts Demonstrated](./Phishing-Account-Takeover/README.md#13-cybersecurity-concepts-demonstrated)
-- [14. Same-Day Incident Response (9/3/2026)](./Phishing-Account-Takeover/README.md#14-same-day-incident-response)
+- [14. Same-Day Incident Response (9/3/2026)](./Phishing-Account-Takeover/README.md#14-same-day-incident-response-(9/3/2026))
 
 ### Conclusion
 
