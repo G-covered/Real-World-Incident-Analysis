@@ -36,15 +36,17 @@ This indicated that their account had likely been compromised and subsequently u
 
 # 2. Credential Phishing
 
-After following the link, I was presented with a Google login page that appeared legitimate.
+After following the link, I was immediately presented with a Google login page that appeared legitimate.
 
-I entered my Google credentials.
+I entered my Google email address and password into the page. The page then displayed a three-digit number and prompted me to continue the authentication process.
 
-The phishing site then requested additional verification and instructed me to confirm which three numbers were correct.
+At the same time, my phone displayed a legitimate Google authentication prompt asking if I was trying to sign in. Because I was actively attempting to log in, the request appeared legitimate. My phone instructed me to confirm which of the three numbers displayed on the phone matched the number shown during the login process.
 
-At the time, this appeared to be a legitimate Google 2-Step Verification process.
+I confirmed the authentication request.
 
-I approved the authentication request.
+Immediately afterward, the website prompted me to log in again, which confused me because I had just completed the authentication process.
+
+Shortly after this, I received an email from Google reporting a new sign-in from a **Mac OS device**. I did not own or use a Mac, which indicated that the authentication I had just approved may have been associated with another device.
 
 ### Important Observation
 
@@ -52,7 +54,11 @@ The attacker did not necessarily need to "crack" my password.
 
 The password I entered was strong and difficult to guess.
 
-Instead, the attack relied on **social engineering** to convince me to voluntarily enter the credentials into a fraudulent login page and approve an authentication request.
+Instead, the attack relied on **social engineering** to convince me to voluntarily enter my credentials into a fraudulent login page and approve what appeared to be a legitimate Google authentication request.
+
+The authentication prompt was particularly convincing because I was actually attempting to sign in at the time. From my perspective, the request appeared to be confirming my own login.
+
+The sequence of events was consistent with the possibility that the credentials entered into the phishing page were relayed to an authentication attempt initiated by the attacker.
 
 This demonstrated an important security principle:
 
@@ -94,51 +100,133 @@ This explained why the password I had originally created was no longer accepted.
 
 # 5. How the Attack Likely Worked
 
-The exact implementation used by the attacker cannot be confirmed from Google's security logs alone.
+Based on the sequence of events, the attack appears to have involved phishing, credential theft, social engineering, and potentially authentication relaying.
 
-However, the behavior was consistent with a phishing attack that leveraged a legitimate authentication process.
+The exact technical mechanism cannot be confirmed from the available Google security logs. However, the sequence of events is consistent with an **Adversary-in-the-Middle (AiTM)** attack.
 
-A simplified attack flow is:
+The likely attack flow was:
+
 
 ```text
-Compromised Friend's Account
-            |
-            v
-    Phishing Email Sent
-            |
-            v
-   Fake Wedding Invitation
-            |
-            v
-     Fake Google Login
-            |
-            v
-      Credentials Entered
-            |
-            v
- Attacker Initiates Google Login
-            |
-            v
- Legitimate Google Verification
-            |
-            v
- Victim Receives Authentication Prompt
-            |
-            v
- Victim Approves Verification
-            |
-            v
-   Attacker Gains Account Access
+ Compromised Friend's Account
+             |
+             v
+     Phishing Email Sent
+             |
+             v
+    Fake Wedding Invitation
+             |
+             v
 
+            YOU                         PHISHING SITE                 ATTACKER
+             │                                │                           │
+             │ Enter Gmail + password         │                           │
+             ├──────────────────────────────► │                           │
+             │                                │──── credentials ─────────►│
+             │                                │                           │
+             │                                │◄── Login attempt ─────────│
+             │                                │                           │
+             │◄──── Google verification ──────│◄──── Google prompt ───────│
+             │                                │                           │
+             │ "Are you signing in?"          │                           │
+             │ YES                            │                           │
+             │                                │                           │
+             │──── Approve ──────────────────►│───── Authentication ─────►│
+             │                                │                           │
+             │                                │                           │
+             │                         ATTACKER LOGGED IN                 │
+             │                         Mac OS session                     │
 ```
 
-The exact technical mechanism used by the attacker cannot be confirmed solely from the Google security logs.
 
-However, the behavior was consistent with a phishing attack that leveraged a legitimate authentication process and social engineering.
+Step-by-Step Explanation
+# 1. Phishing Link
 
-One possible technique is an **Adversary-in-the-Middle (AiTM)** attack, in which an attacker relays authentication information between the victim and the legitimate authentication service.
+The email appeared to come from a trusted contact and presented a believable reason to follow the link.
 
-Regardless of the exact implementation, the attack demonstrated that the attacker did not necessarily need to break Google's authentication system. Instead, the attacker manipulated the user into participating in the authentication process.
+When I opened the link, I was immediately presented with what appeared to be a Google login page.
+
+# 2. Credential Entry
+
+I entered my Gmail address and password into the page.
+
+The credentials may have then been relayed to the attacker or their authentication infrastructure.
+
+# 3. Attacker Initiates a Google Login
+
+The attacker appears to have used the credentials to initiate a legitimate Google login from their own device.
+
+This is consistent with the Mac OS activity that appeared in Google's security history.
+
+# 4. Legitimate Google Authentication Prompt
+
+Google sent an authentication request to my phone.
+
+My phone asked whether I was attempting to sign in.
+
+Because I was actively trying to log in at that exact moment, the authentication request appeared legitimate.
+
+The prompt also displayed a number that matched the number shown during the login process.
+
+# 5. Authentication Was Approved
+
+I confirmed the authentication request on my phone.
+
+From my perspective, I was confirming the login that I had just initiated.
+
+However, the authentication may have actually been approving the attacker's Google login session.
+
+# 6. Mac OS Session Appeared
+
+Immediately after approving the authentication request, I received an email reporting a new sign-in from Mac OS.
+
+This was unexpected because I had been using my phone and did not own or use a Mac.
+
+This provided an important clue that the authentication I had just approved may have been associated with another device.
+
+# 7. Phishing Page Requested Another Login
+
+After the authentication was approved, the website prompted me to log in again.
+
+This was confusing because I had just completed the login process.
+
+The second login request is consistent with the possibility that the phishing page was not actually completing a normal login for me, but was instead being used to collect or relay authentication information.
+
+Why the Attack Happened So Quickly
+
+The attacker would not necessarily have needed to manually type each character into their own computer.
+
+If the phishing page was acting as an intermediary, information entered by the victim could potentially be transmitted electronically to the attacker's authentication process almost immediately.
+
+The sequence could therefore occur within seconds:
+
+```text
+Credentials Entered
+        ↓
+Credentials Relayed
+        ↓
+Attacker Initiates Login
+        ↓
+Google Sends Authentication Prompt
+        ↓
+Victim Approves Prompt
+        ↓
+Attacker's Session Authenticated
+        ↓
+Mac OS Sign-In Appears
+```
+
+This explains why the attack felt as though I had entered the credentials directly into the attacker's device.
+
+Technically, I was not necessarily controlling or typing into the attacker's computer. Instead, the information entered into the phishing page may have been transmitted to the attacker's authentication process.
+
+# Important Limitation
+
+The exact technical mechanism cannot be confirmed solely from Google's security logs.
+
+The evidence strongly supports phishing, credential theft, social engineering, and account takeover.
+
+The sequence is also consistent with an Adversary-in-the-Middle (AiTM) or authentication-relaying attack, but this should be treated as a likely possibility rather than a confirmed technique.
 
 ---
 
