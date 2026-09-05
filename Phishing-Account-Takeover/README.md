@@ -139,27 +139,30 @@ Legitimate-looking wedding invitation
              v
     
 
-            YOU                         PHISHING SITE                 ATTACKER
-             │                                │                           │
-             │ Enter Gmail + password         │                           │
-             ├──────────────────────────────► │                           │
-             │                                │──── credentials ─────────►│
-             │                                │                           │
-             │                                │◄── Login attempt ─────────│
-             │                                │                           │
-             │◄──── Google verification ──────│◄──── Google prompt ───────│
-             │                                │                           │
-             │ "Are you signing in?"          │                           │
-             │ YES                            │                           │
-             │                                │                           │
-             │──── Approve ──────────────────►│───── Authentication ─────►│
-             │                                │                           │
-             │                                │                           │
-             │                         ATTACKER LOGGED IN                 │
-             │                         Mac OS session                     │
-                                              |
-                                              v
-                                    Google account takeover
+            YOU                                  PHISHING SITE                     LEGITIMATE GOOGLE SERVICE
+             │                                          │                                      │
+             │                                          │                                      │
+             ├──────── Enter Gmail + password ────────► │──────── Forwards credentials ───────►│
+             │                                          │                                      │
+             │                                          │                                      │
+             │◄───────── Google verification ───────────│◄──────── Google sends MFA ───────────│
+             │                                          │                                      │
+             │ "Are you signing in?"                    │                                      │
+             │  YES                                     │                                      │
+             │                                          │                                      │
+             │────────────── Approved ─────────────────►│─────────── Authentication ──────────►│
+             │                                          │                                      │
+             │                                          │◄────────── Login successful ─────────|
+             │                                          │                                      |
+             │                                 STOLEN SESSION COOKIE                           │
+             |                                          |                                      │
+             |                                   ATTACKER LOGGED IN                            |
+             │                                          |                                      |
+             │◄────── New sign-in reported ─────── Mac OS session                              │
+             |                                          |                                      |
+             |                                          |                                      |
+                                                        v
+                                              Google account takeover
 ```
 
 
