@@ -524,60 +524,146 @@ An attacker who compromises a recovery method may be able to regain access even 
 
 If I encountered a similar email again, I would:
 
-- First of all, contact the supposed sender through another communication method if the message seems unusual.
-- Don't assume if the website is legitimate, it is real altogether.
-- Verify whether the invitation actually exists.
-- Check the domain before entering credentials.
-- Now we know attackers can use real authentication to confirm your account. 
+- Contact the supposed sender through another communication method if the message seems unusual or unexpected.
+- Not assume that a legitimate website makes the entire message or login process legitimate.
+- Verify that the invitation actually exists before following links or entering credentials.
+- Check the domain carefully before entering any credentials.
+- Be more cautious with unexpected authentication prompts, even when I am actively attempting to sign in.
+- Remember that attackers can use legitimate authentication processes as part of a social engineering attack.
 
 ---
 
 # 13. Cybersecurity Concepts Demonstrated
 
-This incident provided practical exposure to:
+This incident provided practical exposure to several cybersecurity concepts across the attack lifecycle, from initial social engineering through account recovery and incident response.
 
-- Phishing
-- Social engineering
-- Credential theft
-- Account takeover
-- Multi-factor authentication
-- MFA social engineering
-- Authentication relaying
-- Session security
-- Password security
-- Password managers
-- Account recovery
-- Incident detection
-- Incident response
-- Security auditing
-- Defense in depth
+## Attack & Social Engineering
+
+- **Phishing** — A fraudulent message and login page were used to obtain account credentials.
+- **Social Engineering** — The attack relied on trust in a known contact and the believable context of a wedding invitation.
+- **Credential Theft** — My Google credentials were captured after being entered into the fraudulent login page.
+- **MFA Social Engineering** — A legitimate Google authentication prompt was presented during the phishing process, and I was convinced to approve it.
+- **Authentication Relaying** — The sequence of events was consistent with the possibility that credentials entered into the phishing page were relayed to a legitimate authentication attempt initiated by the attacker.
+
+## Account & Authentication Security
+
+- **Account Takeover** — The attacker gained unauthorized access to my Google account.
+- **Multi-Factor Authentication (MFA)** — Google used an additional authentication factor during the login process.
+- **Session Security** — The incident demonstrated the importance of reviewing active sessions and unfamiliar devices after an account compromise.
+- **Account Recovery** — Account recovery mechanisms were necessary after the attacker changed the password.
+- **Defense in Depth** — Passwords, MFA, device monitoring, account recovery, and security auditing all contribute different layers of protection.
+
+## Credential & Password Security
+
+- **Password Security** — A strong password can still be compromised if it is voluntarily entered into a phishing site.
+- **Password Managers** — The incident demonstrated why credentials stored within a compromised account should be considered during incident response.
+- **Credential Reuse** — A compromised password can create additional risk if the same password is used on other accounts.
+
+## Detection & Incident Response
+
+- **Incident Detection** — An unfamiliar Mac OS sign-in provided the first indication that the account had been compromised.
+- **Security Monitoring** — Google Security Activity and My Activity provided evidence that helped reconstruct the timeline.
+- **Security Auditing** — Devices, sessions, recovery methods, authentication methods, and connected applications were reviewed after the compromise.
+- **Incident Response** — The account required multiple response actions, including password changes, account recovery, enabling 2-Step Verification, and reviewing account security.
+
+## Key Takeaway
+
+This incident demonstrated that cybersecurity is not dependent on a single security control.
+
+A strong password did not prevent the initial credential theft, and the presence of MFA did not prevent the attacker from obtaining unauthorized access after the authentication request was socially engineered.
+
+Effective account security requires **multiple layers of defense**, combined with the ability to detect suspicious activity and respond quickly when those defenses are compromised.
 
 ---
 
-# 14. Same-Day Incident Response
+# 14. Same-Day Incident Response (9/3/2026)
 
-One of the most valuable aspects of this experience was being able to detect, investigate, and respond to the incident within the same day.
+One of the most valuable aspects of this experience was being able to detect, investigate, contain, and recover from a real account compromise within the same day.
 
-- Detection
-- Identified an unexpected Mac OS login.
-- Recognized that the device was not mine.
+Rather than treating the incident as a single event, I approached it as an incident-response process.
+
+## Phase 1 — Detection [11:57 AM]
+
+The first indication of compromise was an unexpected Google sign-in from a **Mac OS device**.
+
+Because I did not own or use a Mac, I immediately treated the activity as suspicious.
+
+- Identified the unfamiliar Mac OS sign-in.
 - Reviewed Google's security activity.
-- Investigation
-- Compared security-event timestamps.
-- Identified an unauthorized password change.
-- Contacted the original email sender.
-- Confirmed that the sender had not sent the phishing message.
-- Containment and Recovery
-- Changed the compromised password.
-- Completed Google account recovery.
-- Enabled 2-Step Verification.
-- Reviewed devices and sessions.
-- Audited account security settings.
-- Analysis
-- Reconstructed the likely phishing attack chain.
-- Identified the social-engineering techniques used.
-- Evaluated the limitations of password-only security.
-- Evaluated the role of MFA and authentication prompts.
+- Compared the sign-in time with the events that had just occurred.
+- Recognized that the activity occurred immediately after the phishing interaction.
+
+## Phase 2 — Initial Containment [12:07 PM]
+
+My first objective was to prevent further unauthorized access.
+
+- Changed my Google account password from my trusted device.
+- Used a new password rather than continuing to use the compromised credentials.
+- Monitored the account for additional suspicious activity.
+
+At this point, I believed the account had been secured. However, the later events demonstrated that the initial response had not completely resolved the compromise.
+
+## Phase 3 — Reassessment [5:20 PM]
+
+Approximately five hours later, I received another unexpected sign-in prompt and discovered that the password I had previously created was no longer accepted.
+
+I treated this as a new indication of compromise rather than assuming the password had simply been entered incorrectly.
+
+- Checked Google's security activity from my phone.
+- Discovered another password change from the unfamiliar Mac OS activity.
+- Noticed that the Windows session had also been signed out.
+- Re-evaluated the assumption that the initial password change had completely secured the account.
+
+This second discovery was an important part of the investigation because it demonstrated that an account takeover may require more than a single password change to fully resolve.
+
+## Phase 4 — Account Recovery & Containment [5:35 PM]
+
+After determining that the account was still compromised, I took additional steps to regain control.
+
+- Completed Google account recovery.            
+- Created a completely different password.      
+- Enabled 2-Step Verification.               
+- Reviewed devices and active sessions.      
+- Removed or investigated anything unfamiliar.
+
+## Phase 5 — Security Audit [6-11 PM]
+
+After regaining control, I performed a broader security review rather than stopping after changing the password.
+
+I reviewed:
+
+- Recovery email and phone number
+- 2-Step Verification methods
+- Passkeys
+- Connected applications
+- Active sessions
+- Recognized devices
+- Other account security settings
+
+I also considered the potential impact on other accounts and credentials associated with the compromised Google account.
+
+## Phase 6 — Investigation & Analysis [Sep 3-4, 2026]
+
+After the account was secured, I reconstructed the sequence of events using the available evidence.
+
+This included:
+
+- Comparing Google Security Activity with Google My Activity.
+- Identifying the suspicious `yellowewte078.es` domain.
+- Correlating the **11:57 AM** phishing-site activity with the **11:57 AM** unauthorized Mac OS sign-in.
+- Comparing the initial password change with the later unauthorized password change.
+- Contacting the original email sender and confirming that they had not sent the message.
+- Reconstructing the likely phishing and social-engineering attack chain.
+- Evaluating the role of MFA and authentication prompts.
+- Identifying which parts of the attack could be confirmed and which could only be considered possible.
+
+## Key Lesson
+
+The most important lesson from the incident was that incident response is an ongoing process, not a single action.
+
+Changing my password was an appropriate first response, but the later unauthorized password change demonstrated why compromised accounts should continue to be monitored and investigated after the initial containment step.
+
+The incident also showed the value of correlating multiple sources of evidence. Google's Security Activity showed the authentication and password-change events, while Google My Activity provided additional evidence of the suspicious website visit. Together, these records helped reconstruct the attack more accurately.
 
 ---
 
@@ -585,7 +671,7 @@ One of the most valuable aspects of this experience was being able to detect, in
 
 This incident was an unexpected but valuable real-world cybersecurity learning experience.
 
-Rather than only studying phishing and authentication attacks theoretically, I was able to observe an attack from the perspective of the victim and then apply incident-response concepts to investigate and secure the account.
+Rather than only studying phishing and authentication attacks theoretically, I was able to observe an attack from the perspective of the victim and then apply incident-response concepts to investigate, contain, recover, and secure the account.
 
 The most important realization was that the attacker did not necessarily need to break or guess a strong password.
 
@@ -594,35 +680,19 @@ Instead, the attack relied on:
 - Trust
 - Social engineering
 - Credential phishing
-- Authentication manipulation
+- Authentication prompt manipulation
 - A compromised trusted contact
 
 The incident reinforced that cybersecurity is not only about technical controls.
 
-Human behavior, authentication design, account recovery, security awareness, and rapid incident response are all important components of account security.
+Human behavior, authentication design, account recovery, security awareness, monitoring, and rapid incident response are all important components of account security.
 
 Within a single day, I was able to identify the suspicious activity, reconstruct the attack timeline, recover the account, secure the account with a new unique password and 2-Step Verification, audit the account's security settings, and document the incident.
 
-This experience changed the way I approach authentication and phishing and provided a practical example of how multiple cybersecurity concepts interact during a real-world account compromise.
+This experience changed the way I approach authentication and phishing. It also provided a practical example of how multiple cybersecurity concepts interact during a real-world account compromise.
+
+Most importantly, the incident demonstrated the importance of treating unexpected authentication requests with caution, even when they appear to be part of a legitimate login attempt.
 
 # Key Takeaway
 
-The strongest password in the world cannot protect an account if an attacker convinces the user to give it to them.
-
-Defense in depth is essential:
-
-```text
-Unique Password
-       +
-2-Step Verification
-       +
-Secure Recovery Methods
-       +
-Password Manager Security
-       +
-Security Awareness
-       +
-Rapid Incident Response
-       =
-Stronger Account Security
-```
+> **The strongest password in the world cannot protect an account if an attacker convinces the user to give it to them.**
