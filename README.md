@@ -10,7 +10,7 @@ The report follows the incident from the initial phishing message through detect
 
 **Sections 1–2: How the attack happened**
 
-- [1. Initial Attack](./Phishing-Account-Takeover.md#1-initial-attack)
+- [1. Initial Attack](./Phishing-Account-Takeover.md/README.md#1-initial-attack)
 - [2. Credential Phishing](./Phishing-Account-Takeover.md#2-credential-phishing)
 
 ### Detection & Response
