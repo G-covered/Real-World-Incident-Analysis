@@ -23,7 +23,7 @@ The report follows the incident from the initial phishing message through detect
 
 - [3. Detection](./Phishing-Account-Takeover/README.md#3-detection)
 - [4. Security Timeline](./Phishing-Account-Takeover/README.md#4-security-timeline)
-- [5. Attack Chain](./Phishing-Account-Takeover/README.md#5-attack-chain)
+- [5. How the Attack Likely Worked](./Phishing-Account-Takeover/README.md#5-how-the-Attack-Likely-Worked)
 - [6. Social Engineering Techniques](./Phishing-Account-Takeover/README.md#6-social-engineering-techniques)
 - [7. Why the Attack Was Effective](./Phishing-Account-Takeover/README.md#7-why-the-attack-was-effective)
 - [8. Incident Response](./Phishing-Account-Takeover/README.md#8-incident-response)
