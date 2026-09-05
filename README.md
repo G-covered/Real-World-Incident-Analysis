@@ -1,4 +1,4 @@
-# Real-World-Incident-Analysis
+<img width="1672" height="941" alt="ChatGPT Image Sep 5, 2026, 12_30_25 AM" src="https://github.com/user-attachments/assets/db137096-e23c-4dcb-b47b-16d56f3bbb12" />
 
 This repository documents a real-world phishing and account takeover incident that I experienced and investigated.
 
