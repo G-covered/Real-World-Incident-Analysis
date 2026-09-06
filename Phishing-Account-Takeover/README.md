@@ -6,13 +6,17 @@ On September 3, 2026, I experienced and investigated a real-world phishing attac
 
 What initially appeared to be a legitimate wedding invitation was actually part of a phishing attack originating from a friend's compromised account. The attack used social engineering and a fraudulent Google login page to capture my credentials and convince me to approve a legitimate Google authentication request.
 
-Google's activity records later provided additional evidence of the attack. At approximately 11:57 AM, Google My Activity recorded a visit to a suspicious domain displaying a page titled **"Sign in with your Google Account."** At approximately the same time, Google's security activity reported a new sign-in from an unfamiliar **Mac OS device**.
+Based on the sequence of events observed during the investigation, I suspect the attack may have involved an **Adversary-in-the-Middle (AiTM)** technique, in which credentials and authentication activity can be relayed between a victim and a legitimate authentication service. The timing of the phishing-site activity, legitimate Google authentication prompt, and subsequent unauthorized Mac OS sign-in is consistent with this possibility.
 
-The incident required a two-stage response. I initially changed my Google password after detecting the unauthorized sign-in. Approximately five hours later, I discovered that the password had been changed again by the unauthorized Mac OS activity, requiring me to recover the account and investigate the compromise further.
+However, the available Google activity records do not provide enough technical evidence to definitively confirm that AiTM was used. Therefore, AiTM is treated as a **likely possibility rather than a confirmed finding** in this investigation.
+
+Google's activity records provided additional evidence of the attack. At approximately 11:57 AM, Google My Activity recorded a visit to a suspicious domain displaying a page titled **"Sign in with your Google Account."** At approximately the same time, Google's security activity reported a new sign-in from an unfamiliar **Mac OS device**.
+
+The incident required a two-stage response. I initially changed my Google password after detecting the unauthorized sign-in. Approximately five hours later, Google Security Activity recorded another password change associated with the unfamiliar Mac OS activity, requiring me to recover the account and investigate the compromise further.
 
 After recovering the account, I created a completely different password, enabled 2-Step Verification, reviewed devices and active sessions, and audited the account's security settings.
 
-This report documents the attack, evidence collected during the investigation, incident response, and lessons learned.
+This report documents the attack, evidence collected during the investigation, incident response, account recovery, and lessons learned.
 
 ---
 
